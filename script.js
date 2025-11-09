@@ -46,7 +46,7 @@ document.addEventListener('DOMContentLoaded', function() {
         console.log('Sending data:', response); // DEBUG
 
         // Send to Google Sheets
-        fetch('https://script.google.com/macros/s/AKfycbxkqUUPOA2djtaZTQR1HO2dP_DpOipQngxggYPovangh0F6HMd04Z3JDuMCOvO_W_wb/exec', {
+        fetch('https://script.google.com/macros/s/AKfycbyvEsCyw8F2Afw6kmP29iVRL5Oe6in1QC1_Sj6JNNWIQ985PoO6ZGLwztJItfVomYPg/exec', {
             method: 'POST',
             mode: 'no-cors',
             headers: {
