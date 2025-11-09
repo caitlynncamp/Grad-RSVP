@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     document.getElementById('closePopup').onclick = function(event) {
         event.stopPropagation();
-        document.getElementById('invitePopup').classList.remove('visible');
+        document.getElementById('invitePopup').classList.add('visible');
         document.getElementById('responseSection').style.display = 'none';
         document.getElementById('successMessage').style.display = 'none';
     };
