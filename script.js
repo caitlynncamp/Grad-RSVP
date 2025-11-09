@@ -14,6 +14,7 @@ document.addEventListener('DOMContentLoaded', function() {
         document.getElementById('successMessage').style.display = 'none';
     };
 
+    // Submit RSVP
     document.getElementById('submitRsvp').onclick = function(event) {
         event.stopPropagation();
         const name = document.getElementById('guestName').value.trim();
@@ -42,6 +43,8 @@ document.addEventListener('DOMContentLoaded', function() {
             timestamp: new Date().toISOString()
         };
 
+        console.log('Sending data:', response); // DEBUG
+
         // Send to Google Sheets
         fetch('https://script.google.com/macros/s/AKfycbxkqUUPOA2djtaZTQR1HO2dP_DpOipQngxggYPovangh0F6HMd04Z3JDuMCOvO_W_wb/exec', {
             method: 'POST',
@@ -52,6 +55,7 @@ document.addEventListener('DOMContentLoaded', function() {
             body: JSON.stringify(response)
         })
         .then(() => {
+            console.log('Fetch completed'); // DEBUG
             // Save locally
             responses.push(response);
             localStorage.setItem('gradResponses', JSON.stringify(responses));
@@ -69,7 +73,7 @@ document.addEventListener('DOMContentLoaded', function() {
             document.getElementById('dec18').checked = true;
         })
         .catch(error => {
-            console.error('Error:', error);
+            console.error('Fetch error:', error); // DEBUG
             alert('Error submitting RSVP. Please try again.');
         });
     };
